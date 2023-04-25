@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>Eden Property</title>
+    <link
+      rel="shortcut icon"
+      href="/static/icon/favicon.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/static/css/index.css" />
+  </head>
+  <body>
+    <div class="row h-300 bg-grey">
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/">Home</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/product">Product</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/award">Award</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/service">Service</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- vp = view point (%) -->
+        <div class="card mg-20 pd-20" style="height: 80vp">
+          <h3>Price Calculator</h3>
+          <br />
+          <form action="/service" method="POST">
+
+            <label for="service_kind_field">Service</label>
+            <select name="service_kind" id="service_kind_field">
+              {% for service_kind in service_kinds %}
+                  <option 
+                  value="{{ service_kind.get('id') }}" 
+                  {% if service_kind.get('id') == service_kind_id %} 
+                    selected 
+                  {% endif %}
+                  >{{ service_kind.get("title") }}</option>
+              {% endfor %}
+            </select>
+            
+            <br/>
+
+            <label for="amount_field">Amount</label>
+            <input type="number" id="amount_field" name="amount" value={{amount}} />
+            <br/>
+
+            <label for="insurance_field">Insurance</label>
+            <select id="insurance_field" name="insurance" value={{insurance}}>
+                <option value="yes" {% if insurance == "yes" %} selected {% endif %}>Yes</option>
+                <option value="no" {% if insurance == "no" %} selected {% endif %}>No</option>
+            </select>
+            <br/>
+
+            <label for="installation_support_field">Installation Support</label>
+            <select id="installation_support_field" name="installation_support" value={{installation_support}}>
+                <option value="yes" {% if installation_support == "yes" %} selected {% endif %}>Yes</option>
+                <option value="no" {% if installation_support == "no" %} selected {% endif %}>No</option>
+            </select>
+            <br/>
+
+            <label for="shipping_field">Shipping Location</label>
+            <select id="shipping_field" name="shipping" value={{shipping}} >
+              <option value="indonesia" {% if shipping == "indonesia" %} selected {% endif %}>Indonesia</option>
+              <option value="international" {% if shipping == "international" %} selected {% endif %}>International</option>
+            </select>
+            <br/>
+
+            <button class="btn-grey" style="height: 30px; width: 120px;">Calculate</button>
+            <br/>
+            <p>Estimation: $
+              {% if price_estimation %}
+                {{ price_estimation }}
+              {% else %}
+                0
+              {% endif %}
+
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row bg-grey" style="height: 100px">
+      <div class="col-12 pd-20">
+        <hr />
+        <p class="text-right">copyright: edenproperty@2023</p>
+      </div>
+    </div>
+  </body>
+</html>

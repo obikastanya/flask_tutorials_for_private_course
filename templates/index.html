@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Eden Property</title>
+    <link
+      rel="shortcut icon"
+      href="/static/icon/favicon.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/static/css/index.css" />
+  </head>
+  <body>
+    <div class="row h-300 bg-grey">
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/">Home</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/product">Product</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/award">Award</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/service">Service</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 text-right">
+        <img src="/static/image/image-2.jpg" style="width: 80%" class="mg-20" />
+        <img src="/static/image/image-2.jpg" style="width: 80%" class="mg-20" />
+        <figcaption class="mg-20">
+          Even an empty space have a meaning
+        </figcaption>
+      </div>
+      <div class="col-2">
+        <h1 class="fsize-85">E D E N P R O P E R T Y</h1>
+      </div>
+      <div class="col-4">
+        <h1>
+          CREATING S P A C E S,
+          <br />
+          BUILDING RELATIONSHIPS
+        </h1>
+        <hr />
+        <br />
+        <br />
+        <br />
+
+        <h2>Our Service</h2>
+        <hr />
+        <p>
+          {{ service }}
+        </p>
+        <br />
+        <br />
+        <br />
+        <h2>Our Client</h2>
+        <hr />
+        <ul>
+
+          {% for client in clients %}
+          <li>{{ client.get('name') }}</li>
+          {%endfor%}
+        </ul>
+        <br />
+        <button class="url btn-grey"><a href="/product">Our Product</a></button>
+        <br />
+        <hr />
+        <small>www.edenproperty.org</small>
+        <br />
+        <br />
+      </div>
+      <div class="col-3 pd-20">
+        <img src="/static/image/image-1.jpg" width="100%" />
+      </div>
+    </div>
+
+    <div class="row pd-20 bg-grey" style="height: 150px">
+      <div class="col-12" style="font-size: 35px; text-align: center">
+        <h1>ABOUT</h1>
+      </div>
+    </div>
+    <div class="row bg-grey">
+      <div class="col-1">
+        <!--Space -->
+      </div>
+      <div class="col-3 mg-20">
+        {{ about_us.get("short_desc") }}
+      </div>
+      <div class="col-7 mg-20">
+        {{ about_us.get("full_desc") }}
+      </div>
+      <div class="col-1">
+        <!-- space -->
+      </div>
+    </div>
+    <div class="row bg-grey" style="height: 100px">
+      <div class="col-12 pd-20">
+        <hr />
+        <p class="text-right">copyright: edenproperty@2023</p>
+      </div>
+    </div>
+  </body>
+</html>

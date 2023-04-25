@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Eden Property</title>
+    <link
+      rel="shortcut icon"
+      href="/static/icon/favicon.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/static/css/index.css" />
+  </head>
+  <body>
+    <div class="row h-300 bg-grey">
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/">Home</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/product">Product</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/award">Award</a>
+      </div>
+      <div class="col-3 mg-20 fsize-30 url">
+        <a href="/service">Service</a>
+      </div>
+    </div>
+    <div class="row">
+      {% for section in products.keys() %}
+      <div class="col-4 mg-20 pd-20">
+        {% for product in products.get(section) %}
+        <div class="card pd-20 mg-20">
+          <img src="{{ product.get('image') }}" style="width: 100%" />
+          <hr />
+          <h3>{{ product.get('title') }}</h3>
+          <small style="color:green">${{ product.get("price") }}</small>
+          <figcaption>
+            {{ product.get('description') }}
+          </figcaption>
+          <button>Detail</button>
+        </div>
+
+        {% endfor %}
+      </div>
+
+      {% endfor %}
+    </div>
+    <div class="row bg-grey" style="height: 100px">
+      <div class="col-12 pd-20">
+        <hr />
+        <p class="text-right">copyright: edenproperty@2023</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+class AwardController:
+    def __init__(self) -> None:
+        self.awards =[
+            {
+                "achievement": "Best Interior Design Company",
+                "date": "2022-07-10",
+                "location": "The International Design Awards, New York"
+            },
+            {
+                "achievement": "Most Innovative Use of Materials",
+                "date": "2021-11-21",
+                "location": "The Interior Design Show, Toronto"
+            },
+            {
+                "achievement": "Outstanding Commercial Design Project",
+                "date": "2023-05-02",
+                "location": "The American Society of Interior Designers, Los Angeles"
+            },
+            {
+                "achievement": "Residential Design Award",
+                "date": "2022-03-12",
+                "location": "The Society of British Interior Design, London"
+            },
+            {
+                "achievement": "Best Retail Design",
+                "date": "2021-09-18",
+                "location": "The Retail Design Expo, Dubai"
+            },
+            {
+                "achievement": "Sustainability Award",
+                "date": "2023-02-05",
+                "location": "The Green Building Council, Sydney"
+            },
+            {
+                "achievement": "Hospitality Design Award",
+                "date": "2022-10-09",
+                "location": "The International Hotel Awards, Las Vegas"
+            },
+            {
+                "achievement": "Innovation Award",
+                "date": "2021-12-03",
+                "location": "The World Design Awards, Seoul"
+            }
+        ]
+    
+    def get_awards(self):
+        return self.awards
