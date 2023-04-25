@@ -30,6 +30,12 @@ def product():
     products = product_controller.get_products()
     return render_template("product.html", products = products)
 
+
+@app.get("/product/<product_id>/")
+def product_detail(product_id):
+    product = product_controller.get_product_by_id(product_id)
+    return render_template("product_detail.html", product = product)
+
 @app.get("/award")
 def award():
     awards = award_controller.get_awards()

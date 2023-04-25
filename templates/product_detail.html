@@ -24,26 +24,28 @@
       </div>
     </div>
     <div class="row">
-      {% for section in products.keys() %}
-      <div class="col-4 mg-20 pd-20">
-        {% for product in products.get(section) %}
-        <div class="card pd-20 mg-20">
-          <img src="{{ product.get('image') }}" style="width: 100%" />
-          <hr />
-          <h3>{{ product.get('title') }}</h3>
-          <small style="color:green">${{ product.get("price") }}</small>
-          <figcaption>
-            {{ product.get('description') }}
-          </figcaption>
-          <button >
-            <a href="/product/{{product.get('id')}}">Detail</a>
-          </button>
-        </div>
-
-        {% endfor %}
+      <div class="col-4 pd-20 mg-20">
+        <h1>{{ product.get('title') }}</h1>
+        <hr />
+        <img src="/static/image/award.jpg" style="width: 100%" />
       </div>
-
-      {% endfor %}
+      <div class="col-8 pd-20 mg-20 bg-soft-grey">
+        <h3>Detail Product</h3>
+        <hr />
+        <table>
+          <tbody>
+            {% for key, value in product.items() %}
+              {% if key != "image" %}  
+                <tr>
+                  <td>{{ key | capitalize }} </td>
+                  <td>{{ value }}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+        <div style="height: 300px"></div>
+      </div>
     </div>
     <div class="row bg-grey" style="height: 100px">
       <div class="col-12 pd-20">
