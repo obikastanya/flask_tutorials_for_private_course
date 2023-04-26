@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Eden Property</title>
+    <link
+      rel="shortcut icon"
+      href="/static/icon/favicon.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/static/css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="/login">
+        {% if error_message %}
+          <h5 style="color:red">{{error_message}}</h5>
+        {% endif %}
+        <label>Email</label>
+        <input type="email" name="email" />
+        <label>Password</label>
+        <input name="password" type="password" />
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+
+  </body>
+</html>

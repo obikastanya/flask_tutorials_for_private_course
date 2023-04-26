@@ -1,18 +1,42 @@
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import (
+    Flask, 
+    render_template,
+    request,
+    redirect
+)
 
 from app.home.home_controller import HomeController
 from app.product.product_controller import ProductController
 from app.award.award_controller import AwardController
 from app.service.service_controller import ServiceController
+from app.login.login_controller import LoginController
 
 home_controller = HomeController()
 product_controller = ProductController()
 award_controller = AwardController()
 service_controller = ServiceController()
+login_controller = LoginController()
 
 app = Flask(__name__)
+
+@app.get("/login")
+def login():
+    return render_template("login.html")
+
+@app.post("/login")
+def login_post():
+    
+    email = request.form.get("email")
+    password = request.form.get("password")
+    result = login_controller.login(email, password)
+
+    login_status = result[0]
+    error_message = result[1]
+
+    if login_status:
+        return redirect("/product")
+    
+    return render_template("login.html", error_message=error_message)
 
 
 @app.get("/")
@@ -24,6 +48,7 @@ def home():
         about_us = data.get('about_us') ,
         service = data.get("service")
     )
+
 
 @app.get("/product")
 def product():
@@ -79,3 +104,4 @@ def service_post():
 if __name__ == "__main__":
     # localhost ==  "127.0.0.1"
     app.run(host="127.0.0.1", port=8080, debug=True)
+
