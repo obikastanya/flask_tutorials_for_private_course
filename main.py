@@ -3,7 +3,9 @@ from flask import (
     render_template,
     request,
     redirect,
-    session
+    session, 
+    abort,
+    flash
 )
 
 from app.home.home_controller import HomeController
@@ -85,6 +87,9 @@ def product_detail(product_id):
     if not session.get("user"):
         return redirect("/login")
     product = product_controller.get_product_by_id(product_id)
+    if not product:
+        flash("Product is not found")
+        abort(404)
     user = session.get("user")
     return render_template("product_detail.html", product = product, user = user)
 
@@ -136,6 +141,13 @@ def service_post():
         user = user
     )
 
+@app.errorhandler(404)
+def resourse_not_found(error):
+    return render_template("error/404.html")
+
+@app.errorhandler(500)
+def resourse_not_found(error):
+    return render_template("error/500.html")
 
 if __name__ == "__main__":
     # localhost ==  "127.0.0.1"
