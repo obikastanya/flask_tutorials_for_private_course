@@ -1,60 +1,27 @@
-<html>
-  <head>
-    <title>Eden Property</title>
-    <link
-      rel="shortcut icon"
-      href="/static/icon/favicon.png"
-      type="image/png"
-    />
-    <link rel="stylesheet" href="/static/css/index.css" />
-  </head>
-  <body>
-    <div class="row bg-grey">
-      <div class="col-3 mg-20 fsize-30 url">
-        <a href="/">Home</a>
-      </div>
-      <div class="col-3 mg-20 fsize-30 url">
-        <a href="/product">Product</a>
-      </div>
-      <div class="col-3 mg-20 fsize-30 url">
-        <a href="/award">Award</a>
-      </div>
-      <div class="col-3 mg-20 fsize-30 url">
-        <a href="/service">Service</a>
-      </div>
-    </div>
-    <div class="row bg-grey">
-      <div class="col-12 mg-20">
-        <p>Welcome {{ user }} <a href="/logout">Logout</a></p>
-      </div>
-    </div>
-    <div class="row">
-      {% for section in products.keys() %}
-      <div class="col-4 mg-20 pd-20">
-        {% for product in products.get(section) %}
-        <div class="card pd-20 mg-20">
-          <img src="{{ product.get('image') }}" style="width: 100%" />
-          <hr />
-          <h3>{{ product.get('title') }}</h3>
-          <small style="color:green">${{ product.get("price") }}</small>
-          <figcaption>
-            {{ product.get('description') }}
-          </figcaption>
-          <button >
-            <a href="/product/{{product.get('id')}}">Detail</a>
-          </button>
-        </div>
+{% extends 'base.html' %} {% block header %}
+<link rel="stylesheet" href="/static/css/index.css" />
+{% endblock %} {% block content %} {% include 'component/menu.html' %}
 
-        {% endfor %}
-      </div>
+<div class="row">
+  {% for section in products.keys() %}
+  <div class="col-4 mg-20 pd-20">
+    {% for product in products.get(section) %}
+    <div class="card pd-20 mg-20">
+      <img src="{{ product.get('image') }}" style="width: 100%" />
+      <hr />
+      <h3>{{ product.get('title') }}</h3>
+      <small style="color: green">${{ product.get("price") }}</small>
+      <figcaption>{{ product.get('description') }}</figcaption>
+      <button>
+        <a href="/product/{{product.get('id')}}">Detail</a>
+      </button>
+    </div>
 
-      {% endfor %}
-    </div>
-    <div class="row bg-grey" style="height: 100px">
-      <div class="col-12 pd-20">
-        <hr />
-        <p class="text-right">copyright: edenproperty@2023</p>
-      </div>
-    </div>
-  </body>
-</html>
+    {% endfor %}
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %} {% block footer%} {% include 'component/footer.html'%} {%
+endblock %}

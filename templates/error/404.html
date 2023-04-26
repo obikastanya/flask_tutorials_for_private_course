@@ -1,29 +1,25 @@
-<html>
-  <head>
-    <title>Eden Property</title>
-    <link
-      rel="shortcut icon"
-      href="/static/icon/favicon.png"
-      type="image/png"
-    />
-    <link rel="stylesheet" href="/static/css/index.css" />
-  </head>
-  <body>
-    <div class="row">
-      <div class="col-12 pd-20 mg-20">
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <h1>{{messages[0]}}</h1>
-        {% else %}
-        <h1>Resource is not found</h1>
-        {% endif %} {% endwith %}
-        <hr />
-        <small style="font-style: italic;">www.edenproperty.org</small>
-        <br />
-        <br />
-        <button class="url btn-grey" style="background-color: red">
-          <a href="/" style="color: white">Back to Home</a>
-        </button>
-      </div>
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %} 
+
+{% block header %}
+  <link rel="stylesheet" href="/static/css/index.css" />
+{% endblock %} 
+
+{% block content %} 
+<div class="row">
+  <div class="col-12 pd-20 mg-20">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <h1>{{messages[0]}}</h1>
+    {% else %}
+    <h1>Resource is not found</h1>
+    {% endif %} {% endwith %}
+    <hr />
+    <small style="font-style: italic;">www.edenproperty.org</small>
+    <br />
+    <br />
+    <button class="url btn-grey" style="background-color: red">
+      <a href="/" style="color: white">Back to Home</a>
+    </button>
+  </div>
+</div>
+{% endblock %} 
+
