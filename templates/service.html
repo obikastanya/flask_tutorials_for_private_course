@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/css/index.css" />
   </head>
   <body>
-    <div class="row h-300 bg-grey">
+    <div class="row bg-grey">
       <div class="col-3 mg-20 fsize-30 url">
         <a href="/">Home</a>
       </div>
@@ -21,6 +21,11 @@
       </div>
       <div class="col-3 mg-20 fsize-30 url">
         <a href="/service">Service</a>
+      </div>
+    </div>
+    <div class="row bg-grey">
+      <div class="col-12 mg-20">
+        <p>Welcome {{ user }} <a href="/logout">Logout</a></p>
       </div>
     </div>
     <div class="row">

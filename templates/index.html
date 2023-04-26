@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/css/index.css" />
   </head>
   <body>
-    <div class="row h-300 bg-grey">
+    <div class="row bg-grey">
       <div class="col-3 mg-20 fsize-30 url">
         <a href="/">Home</a>
       </div>
@@ -21,6 +21,11 @@
       </div>
       <div class="col-3 mg-20 fsize-30 url">
         <a href="/service">Service</a>
+      </div>
+    </div>
+    <div class="row bg-grey">
+      <div class="col-12 mg-20">
+        <p>Welcome {{ user }} <a href="/logout">Logout</a></p>
       </div>
     </div>
 
@@ -48,16 +53,13 @@
 
         <h2>Our Service</h2>
         <hr />
-        <p>
-          {{ service }}
-        </p>
+        <p>{{ service }}</p>
         <br />
         <br />
         <br />
         <h2>Our Client</h2>
         <hr />
         <ul>
-
           {% for client in clients %}
           <li>{{ client.get('name') }}</li>
           {%endfor%}
@@ -84,12 +86,8 @@
       <div class="col-1">
         <!--Space -->
       </div>
-      <div class="col-3 mg-20">
-        {{ about_us.get("short_desc") }}
-      </div>
-      <div class="col-7 mg-20">
-        {{ about_us.get("full_desc") }}
-      </div>
+      <div class="col-3 mg-20">{{ about_us.get("short_desc") }}</div>
+      <div class="col-7 mg-20">{{ about_us.get("full_desc") }}</div>
       <div class="col-1">
         <!-- space -->
       </div>

@@ -41,6 +41,7 @@ Framework vs Library.
 5. session and cookie
 6. flash message
 7. login
+8. error handling
 
 <!-- Postgresql sylabus -->
 1. Database Introduction

@@ -19,7 +19,6 @@ class LoginController:
         self.user = User()
 
     def login(self, email, password):
-        
         users = self.user.get_users()
         match_user = None
         login_status = None
@@ -35,5 +34,4 @@ class LoginController:
         else:
             login_status = False
             error_message = "Incorrect email or password!"
-        
-        return login_status, error_message
+        return login_status, error_message, match_user
