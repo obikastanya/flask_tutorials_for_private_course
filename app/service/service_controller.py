@@ -59,7 +59,7 @@ class ServiceKindController:
 class ServiceController:
     def __init__(self):
         self.service_kind = ServiceKindController()
-        self.insurance_price = 0.02/100
+        self.insurance_price = 0.8/100
         self.installation_support_fee = 50
         self.shipping_price = {
             "indonesia":80,
